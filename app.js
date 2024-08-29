@@ -4,8 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs =require('express-handlebars')
+
+var fileUpload = require('express-fileupload');
 var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
+var db=require('./configuration/connection');
 
 
 var app = express();
@@ -19,7 +22,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use(fileUpload())
+console.log("started")
+db.connect((err)=>{
+  if(err) console.log("connection error"+err)
+  else    console.log("connected database")
+})
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
 

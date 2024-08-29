@@ -1,0 +1,37 @@
+<h2 style="text-align: center; margin-top: 50px;">Product Upload Form</h2>
+<form action="/admin/add-product" method="post" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+    <!-- Product Name -->
+    <div style="margin-bottom: 15px;">
+        <label for="name" style="display: block; margin-bottom: 5px;">Product Name:</label>
+        <input type="text" id="name" name="name" style="width: 100%; padding: 10px;" required>
+    </div>
+    
+    <!-- Product Category -->
+    <div style="margin-bottom: 15px;">
+        <label for="category" style="display: block; margin-bottom: 5px;">Category:</label>
+        <input type="text" id="category" name="category" style="width: 100%; padding: 10px;" required>
+    </div>
+    
+    <!-- Product Price -->
+    <div style="margin-bottom: 15px;">
+        <label for="price" style="display: block; margin-bottom: 5px;">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" style="width: 100%; padding: 10px;" required>
+    </div>
+    
+    <!-- Product Description -->
+    <div style="margin-bottom: 15px;">
+        <label for="description" style="display: block; margin-bottom: 5px;">Description:</label>
+        <textarea id="description" name="description" rows="4" style="width: 100%; padding: 10px;" required></textarea>
+    </div>
+    
+    <!-- Image Upload -->
+    <div style="margin-bottom: 20px;">
+        <label for="image" style="display: block; margin-bottom: 5px;">Upload Image:</label>
+        <input type="file" id="image" name="image" style="width: 100%; padding: 10px;" required>
+    </div>
+    
+    <!-- Submit Button -->
+    <div style="text-align: center;">
+        <button type="submit" style="padding: 10px 20px; font-size: 16px;">Submit Product</button>
+    </div>
+</form>
