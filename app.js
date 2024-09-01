@@ -9,7 +9,7 @@ var fileUpload = require('express-fileupload');
 var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 var db=require('./configuration/connection');
-
+var session=require('express-session')
 
 var app = express();
 // view engine setup
@@ -23,6 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(fileUpload())
+app.use(session({secret:"Key",cookie:{maxAge:60000}}))
 console.log("started")
 db.connect((err)=>{
   
