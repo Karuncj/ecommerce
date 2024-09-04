@@ -24,5 +24,13 @@ module.exports={
                 resolve(response)
             })
         })
+    },
+    getProductDetails:(productId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.PRODUCT_COLLECTION).finOne({_id: ObjectId.createFromHexString(productId)}).then((response)=>{
+                console.log(response)
+                resolve(response)
+            })
+        })
     }
 }
