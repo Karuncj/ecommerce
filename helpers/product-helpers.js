@@ -27,7 +27,23 @@ module.exports={
     },
     getProductDetails:(productId)=>{
         return new Promise((resolve,reject)=>{
-            db.get().collection(collection.PRODUCT_COLLECTION).finOne({_id: ObjectId.createFromHexString(productId)}).then((response)=>{
+            db.get().collection(collection.PRODUCT_COLLECTION).findOne({_id: ObjectId.createFromHexString(productId)}).then((response)=>{
+                console.log(response)
+                resolve(response)
+            })
+        })
+    },
+    updateProducts:(productId,productdetails)=>{
+        return new Promise((resolve,reject)=>{
+            console.log(productId)
+            db.get().collection(collection.PRODUCT_COLLECTION).updateOne(({_id: ObjectId.createFromHexString(productId)}),{
+                $set:{
+                    name:productdetails.name,
+                    price:productdetails.price,
+                    description:productdetails.description,
+                    category:productdetails.category
+                }
+            }).then((response)=>{
                 console.log(response)
                 resolve(response)
             })
