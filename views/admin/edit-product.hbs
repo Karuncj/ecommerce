@@ -26,8 +26,8 @@
     
     <!-- Image Upload -->
     <div style="margin-bottom: 20px;">
-        <img src="/product-images/{{product._id}}.jpg" alt=" " style="width:100px;height:auto">
-        <input type="file" id="image" name="image" style="width: 100%; padding: 10px;" >
+        <img src="/product-images/{{product._id}}.jpg" id="imgView" alt=" " class="=pt-3" style="width:100px;height:auto" >
+        <input type="file" id="image" name="image" onChange="viewImage(event)" style="width: 100%; padding: 10px;" >
     </div>
     
     <!-- Submit Button -->
@@ -35,3 +35,10 @@
         <button type="submit" style="padding: 10px 20px; font-size: 16px;">Submit Product</button>
     </div>
 </form>
+
+
+<script>
+    function viewImage(event){
+        document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>
